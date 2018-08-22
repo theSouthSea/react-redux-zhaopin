@@ -18,9 +18,9 @@ import './App.css';
 // @connect(mapStatetoProps, actionCreators)
 @connect(
     // 你要什么属性放到props里面
-    state => {
+    state => ({
         num: state
-    },
+    }),
     // 你要什么方法放到props里面，它会自动dispatch
     {
         addGun,
@@ -52,15 +52,4 @@ class App extends Component {
         )
     }
 }
-// const mapStatetoProps = (state) => {
-//     return {
-//         num: state
-//     };
-// }
-// const actionCreators = {
-//     addGun,
-//     removeGun,
-//     addGunAsyn
-// };
-// App = connect(mapStatetoProps, actionCreators)(App);
 export default App;
