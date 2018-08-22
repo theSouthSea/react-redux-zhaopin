@@ -19,7 +19,7 @@ import './App.css';
 @connect(
     // 你要什么属性放到props里面
     state => ({
-        num: state
+        num: state.counter
     }),
     // 你要什么方法放到props里面，它会自动dispatch
     {
