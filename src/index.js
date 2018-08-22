@@ -16,6 +16,15 @@ function Erying() {
 function Qibinglian() {
     return <h1>骑兵连</h1>
 }
+class Test extends Component {
+    // constructor(props) {
+    //     super(props)
+    // }
+    render() {
+        console.log(this.props);
+        return <h2>测试组件{ this.props.match.params.location }</h2>
+    }
+}
 ReactDOM.render((<Provider store={ store }>
                    <BrowserRouter>
                      <div>
@@ -37,9 +46,10 @@ ReactDOM.render((<Provider store={ store }>
                          </li>
                        </ul>
                        <Route path="/" exact component={ APP }></Route>
-                       <Route path="/erying" component={ Erying }></Route>
-                       <Route path="/qibinglian" component={ Qibinglian }></Route>
+                       <Route path="/:location" component={ Test }></Route>
                      </div>
                    </BrowserRouter>
                  </Provider>), document.getElementById('root'))
 registerServiceWorker();
+// <Route path="/erying" component={ Erying }></Route>
+// <Route path="/qibinglian" component={ Qibinglian }></Route>
