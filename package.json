@@ -36,7 +36,7 @@
     "react-dom": "^16.0.0-rc.2",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
+    "redux-thunk": "^2.3.0",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
@@ -91,7 +91,8 @@
       "react-app"
     ],
     "plugins": [
-      "transform-decorators-legacy"
+      "transform-decorators-legacy",
+      ["import", { "libraryName": "antd-mobile", "style": "css" }]
     ]
   },
   "eslintConfig": {
