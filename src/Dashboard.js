@@ -20,10 +20,12 @@ class Test extends Component {
         logout
     })
 class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     render() {
+        console.log(this.props);
+        const url = this.props.match.url;
         const loginPage = <Redirect to="/login"></Redirect>
         const dashboard = (
         <div>
@@ -35,24 +37,24 @@ class Dashboard extends Component {
                                 </button> : null }
           <ul>
             <li>
-              <Link to="/dashboard/">
+              <Link to={ `${url}/` }>
                 一营
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/erying">
+              <Link to={ `${url}/erying` }>
                 二营
               </Link>
             </li>
             <li>
-              <Link to="/dashboard/qibinglian">
+              <Link to={ `${url}/qibinglian` }>
                 骑兵连
               </Link>
             </li>
           </ul>
-          <Route path="/dashboard/" exact component={ App }></Route>
-          <Route path="/dashboard/erying" component={ Erying }></Route>
-          <Route path="/dashboard/qibinglian" component={ Qibinglian }></Route>
+          <Route path={ `${url}/` } exact component={ App }></Route>
+          <Route path={ `${url}/erying` } component={ Erying }></Route>
+          <Route path={ `${url}/qibinglian` } component={ Qibinglian }></Route>
         </div>
         )
         return this.props.isAuth ? dashboard : loginPage;
