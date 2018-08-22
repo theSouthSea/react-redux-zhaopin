@@ -4,6 +4,29 @@ import { addGun, removeGun, addGunAsyn } from './index.redux.js';
 import logo from './logo.svg';
 import { Button } from 'antd-mobile';
 import './App.css';
+// const mapStatetoProps = (state) => {
+//     return {
+//         num: state
+//     };
+// }
+// const actionCreators = {
+//     addGun,
+//     removeGun,
+//     addGunAsyn
+// };
+// App = connect(mapStatetoProps, actionCreators)(App);
+// @connect(mapStatetoProps, actionCreators)
+@connect(
+    // 你要什么属性放到props里面
+    state => {
+        num: state
+    },
+    // 你要什么方法放到props里面，它会自动dispatch
+    {
+        addGun,
+        removeGun,
+        addGunAsyn
+    })
 class App extends Component {
     render() {
         const num = this.props.num;
@@ -29,15 +52,15 @@ class App extends Component {
         )
     }
 }
-const mapStatetoProps = (state) => {
-    return {
-        num: state
-    };
-}
-const actionCreators = {
-    addGun,
-    removeGun,
-    addGunAsyn
-};
-App = connect(mapStatetoProps, actionCreators)(App);
+// const mapStatetoProps = (state) => {
+//     return {
+//         num: state
+//     };
+// }
+// const actionCreators = {
+//     addGun,
+//     removeGun,
+//     addGunAsyn
+// };
+// App = connect(mapStatetoProps, actionCreators)(App);
 export default App;
