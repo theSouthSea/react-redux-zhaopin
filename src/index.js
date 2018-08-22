@@ -4,7 +4,7 @@ import APP from './App.js';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Redirect, Switch } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import { counter } from './index.redux.js';
 const store = createStore(counter, compose(applyMiddleware(thunk),
@@ -17,11 +17,7 @@ function Qibinglian() {
     return <h1>骑兵连</h1>
 }
 class Test extends Component {
-    // constructor(props) {
-    //     super(props)
-    // }
     render() {
-        console.log(this.props);
         return <h2>测试组件{ this.props.match.params.location }</h2>
     }
 }
@@ -45,11 +41,14 @@ ReactDOM.render((<Provider store={ store }>
                            </Link>
                          </li>
                        </ul>
-                       <Route path="/" exact component={ APP }></Route>
-                       <Route path="/:location" component={ Test }></Route>
+                       <Switch>
+                         <Route path="/" exact component={ APP }></Route>
+                         <Route path="/erying" component={ Erying }></Route>
+                         <Route path="/qibinglian" component={ Qibinglian }></Route>
+                         <Route path="/:location" component={ Test }></Route>
+                       </Switch>
+                       { /*<Redirect to="/qibinglian"></Redirect>*/ }
                      </div>
                    </BrowserRouter>
                  </Provider>), document.getElementById('root'))
 registerServiceWorker();
-// <Route path="/erying" component={ Erying }></Route>
-// <Route path="/qibinglian" component={ Qibinglian }></Route>
